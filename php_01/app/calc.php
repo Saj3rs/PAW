@@ -7,10 +7,12 @@ require_once dirname(__FILE__).'/../config.php';
 // Parametry do widoku przekazujemy przez zmienne.
 
 // 1. pobranie parametrów
-
-$x = $_REQUEST ['x'];
-$y = $_REQUEST ['y'];
-$operation = $_REQUEST ['op'];
+if (isset($_REQUEST ['x']))
+    $x = $_REQUEST ['x'];
+if (isset($_REQUEST ['y']))
+    $y = $_REQUEST ['y'];
+if (isset($_REQUEST ['op']))
+    $operation = $_REQUEST ['op'];
 
 // 2. walidacja parametrów z przygotowaniem zmiennych dla widoku
 
@@ -19,13 +21,13 @@ if ( ! (isset($x) && isset($y) && isset($operation))) {
 	//sytuacja wystąpi kiedy np. kontroler zostanie wywołany bezpośrednio - nie z formularza
 	$messages [] = 'Błędne wywołanie aplikacji. Brak jednego z parametrów.';
 }
-
-// sprawdzenie, czy potrzebne wartości zostały przekazane
-if ( $x == "") {
+else{
+    if ( $x == "") {
 	$messages [] = 'Nie podano liczby 1';
-}
-if ( $y == "") {
+    }
+     if ( $y == "") {
 	$messages [] = 'Nie podano liczby 2';
+    }
 }
 
 //nie ma sensu walidować dalej gdy brak parametrów
