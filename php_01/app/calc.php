@@ -7,22 +7,22 @@ require_once dirname(__FILE__).'/../config.php';
 // Parametry do widoku przekazujemy przez zmienne.
 
 // 1. pobranie parametrów
-if (isset($_REQUEST ['x']))
-    $x = $_REQUEST ['x'];
+if (isset($_REQUEST ['amm']))
+    $amm = $_REQUEST ['amm'];
 if (isset($_REQUEST ['y']))
     $y = $_REQUEST ['y'];
-if (isset($_REQUEST ['op']))
-    $operation = $_REQUEST ['op'];
+if (isset($_REQUEST ['interest']))
+    $interest = $_REQUEST ['interest'];
 
 // 2. walidacja parametrów z przygotowaniem zmiennych dla widoku
 
 // sprawdzenie, czy parametry zostały przekazane
-if ( ! (isset($x) && isset($y) && isset($operation))) {
+if ( ! (isset($amm) && isset($y) && isset($interest))) {
 	//sytuacja wystąpi kiedy np. kontroler zostanie wywołany bezpośrednio - nie z formularza
 	$messages [] = 'Błędne wywołanie aplikacji. Brak jednego z parametrów.';
 }
 else{
-    if ( $x == "") {
+    if ( $amm == "") {
 	$messages [] = 'Nie podano liczby 1';
     }
      if ( $y == "") {
@@ -34,12 +34,12 @@ else{
 if (empty( $messages )) {
 	
 	// sprawdzenie, czy $x i $y są liczbami całkowitymi
-	if (! is_numeric( $x )) {
-		$messages [] = 'Pierwsza wartość nie jest liczbą całkowitą';
+	if (! is_numeric( $amm )) {
+		$messages [] = 'Kwota nie jest liczbą całkowitą';
 	}
 	
 	if (! is_numeric( $y )) {
-		$messages [] = 'Druga wartość nie jest liczbą całkowitą';
+		$messages [] = 'Lata nie są liczbą całkowitą';
 	}	
 
 }
@@ -49,27 +49,20 @@ if (empty( $messages )) {
 if (empty ( $messages )) { // gdy brak błędów
 	
 	//konwersja parametrów na int
-	$x = intval($x);
-	$y = intval($y);
+	$full = intval($amm);
+	$years = intval($y);
+        $interest = intval($interest)/100;
 	
-	//wykonanie operacji
-	switch ($operation) {
-		case 'minus' :
-			$result = $x - $y;
-			break;
-		case 'times' :
-			$result = $x * $y;
-			break;
-		case 'div' :
-			$result = $x / $y;
-			break;
-		default :
-			$result = $x + $y;
-			break;
-	}
+	//obliczenie całej kwoty do spłacenia
+        while($years>0){
+            $full +=$interest*$full;
+            $years--;
+        }
+        //obliczenie kwoty miesięcznej
+        $monthly = $full/(12*$y);
 }
 
 // 4. Wywołanie widoku z przekazaniem zmiennych
-// - zainicjowane zmienne ($messages,$x,$y,$operation,$result)
+// - zainicjowane zmienne ($messages,$x,$y,$interest,$result)
 //   będą dostępne w dołączonym skrypcie
 include 'calc_view.php';
