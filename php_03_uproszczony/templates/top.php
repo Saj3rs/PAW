@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<div class="header">
+<div class="header" id="Intro">
 	<h1><?php out($page_title); if (!isset($page_title)) {  ?> Tytuł domyślny ... <?php } ?></h1>
 	<h2><?php out($page_header); if (!isset($page_header)) {  ?> Tytuł domyślny ... <?php } ?></h1>
 	<p>

@@ -1,6 +1,6 @@
 </div><!-- content -->
 
-<div class="footer">
+<div class="footer"id="Contact">
 	<p>
 		<?php out($page_footer); if (!isset($page_footer)) {  ?> Domyślna zawartość stopki ... <?php } ?>
 	</p>

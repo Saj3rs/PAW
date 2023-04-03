@@ -4,7 +4,7 @@ include _ROOT_PATH.'/templates/top.php';
 <?php //side menu
 include _ROOT_PATH.'/templates/side_menu.php';
 ?>
-<div id="Calc1" class="content">
+<div id="Calc" class="content">
 <h3>Prosty kalkulator</h2>
 
 <form class="pure-form pure-form-stacked " action="<?php print(_APP_ROOT);?>/app/calc.php" method="post">
@@ -67,7 +67,7 @@ if (isset($infos)) {
 
 </div>
 </div>
-<div class="content">
+<div class="content" id="CCalc">
 <form class="pure-form pure-form-aligned" action="<?php print(_APP_URL);?>/app/calc_1.php" method="post">
 	<label for="id_amm">Kwota: </label>
 	<input id="id_amm" type="text" name="amm" value="<?php out($amm) ?>" /><br />
