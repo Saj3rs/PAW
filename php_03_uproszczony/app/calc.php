@@ -86,7 +86,7 @@ if ( validate($form,$infos,$messages,$hide_intro) ){
 
 //Wywołanie widoku, wcześniej ustalenie zawartości zmiennych elementów szablonu
 $page_title = 'Damian Figura';
-$page_description = 'Próba tworzenia z szablonów';
+$page_description = 'Strona z użyciem szablonów';
 $page_header = 'Proste szablony';
 $page_footer = 'Work In Progress';
 

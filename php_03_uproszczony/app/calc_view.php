@@ -68,7 +68,8 @@ if (isset($infos)) {
 </div>
 </div>
 <div class="content" id="CCalc">
-<form class="pure-form pure-form-aligned" action="<?php print(_APP_URL);?>/app/calc_1.php" method="post">
+    <h3>Kalkulator Kredytowy</h2>
+<form class="pure-form pure-form-stacked" action="<?php print(_APP_URL);?>/app/calc_1.php" method="post">
 	<label for="id_amm">Kwota: </label>
 	<input id="id_amm" type="text" name="amm" value="<?php out($amm) ?>" /><br />
 	<label for="id_y">Ilość Lat: </label>

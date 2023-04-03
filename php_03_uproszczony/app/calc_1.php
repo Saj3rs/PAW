@@ -60,10 +60,10 @@ function process(&$amm,&$ye,&$interest,&$monthly,&$full,&$messages2){
 	$full = intval($amm);
 	$years = intval($ye);
         $interest = intval($interest)/100;
-	if($full>10000&&$role!='admin'){
+	/*if($full>10000&&$role!='admin'){
 		$messages2 [] = 'Tylko administrator może obliczać dla kwot większych od 10000 !';
 		return false;
-	}
+	}*/
 	//obliczenie całej kwoty do spłacenia
         while($years>0){
             $full +=$interest*$full;
@@ -87,9 +87,9 @@ if ( validate($amm,$ye,$interest,$messages2) ) { // gdy brak błędów
 }
 
 $page_title = 'Damian Figura';
-$page_description = 'Próba tworzenia z szablonów';
+$page_description = 'Strona z uzyciem szablonów';
 $page_header = 'Proste szablony';
-$page_footer = 'Work In Progress<br>Nieobecny z powodu choroby';
+$page_footer = 'Work In Progress';
 
 // Wywołanie widoku z przekazaniem zmiennych
 // - zainicjowane zmienne ($messages2,$x,$ye,$operation,$result)

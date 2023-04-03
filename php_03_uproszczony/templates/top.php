@@ -6,18 +6,16 @@
 	<meta name="description" content="<?php out($page_description); if (!isset($page_description)) {  ?> Opis domyślny ... <?php } ?>">
 	<title><?php out($page_title); if (empty($page_title)) {  ?> Tytuł domyślny ... <?php } ?></title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">	<link rel="stylesheet" href="<?php print(_APP_URL); ?>/css/style.css">	
-<link rel="stylesheet" href="<?php print(_APP_ROOT); ?>/layouts/side-menu/styles.css">
-<script src="<?php print(_APP_URL); ?>/js/jquery.min.js"></script>
-	<script src="<?php print(_APP_URL); ?>/js/softscroll.js"></script>
+<link rel="stylesheet" href="<?php print(_APP_ROOT); ?>/css/style.css">
 </head>
 <body>
 
-<div class="header" id="Intro">
+<div class="header" id="Intro" style="background-image:url('/PAW/php_03_uproszczony/css/bgd2.jpg')">
 	<h1><?php out($page_title); if (!isset($page_title)) {  ?> Tytuł domyślny ... <?php } ?></h1>
-	<h2><?php out($page_header); if (!isset($page_header)) {  ?> Tytuł domyślny ... <?php } ?></h1>
+	<h1><?php out($page_header); if (!isset($page_header)) {  ?> Tytuł domyślny ... <?php } ?></h1>
 	<p>
 		<?php out($page_description); if (!isset($page_description)) {  ?> Opis domyślny ... <?php } ?>
 	</p>
 </div>
 
-<div >
+<div style="background-image:url('/PAW/php_03_uproszczony/css/bgd.jpg')">
