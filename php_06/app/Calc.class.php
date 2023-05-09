@@ -60,11 +60,11 @@ else{
 if (empty( $messages2 )) {
 	
 	// sprawdzenie, czy $x i $ye s� liczbami ca�kowitymi
-	if (! is_numeric( $amm )) {
+	if (! is_numeric( $this->form->amm )) {
 		$this->mess-> addError('Kwota nie jest liczb� ca�kowit�');
 	}
 	
-	if (! is_numeric( $ye )) {
+	if (! is_numeric( $this->form->ye )) {
 		$this->mess-> addError('Lata nie s� liczb� ca�kowit�');
 	}	
 
@@ -81,7 +81,7 @@ public function process(){
 	//global $role;
         
         $this->form->interest = intval($this->form->interest)/100;
-        $this->result->years = intval($this->form->ye);
+        $this->years = intval($this->form->ye);
         $this->result->full = intval($this->form->amm);
 
 	$this->msgs->addInfo('Parametry poprawne.');
@@ -90,7 +90,7 @@ public function process(){
 //	$years = intval($ye);
 //      $interest = intval($interest)/100;
 	//obliczenie ca�ej kwoty do sp�acenia
-        while($this->result->years>0){
+        while($this->years>0){
             $this->result->full +=$this->form->interest*$this->result->full;
             $this->years--;
         }
