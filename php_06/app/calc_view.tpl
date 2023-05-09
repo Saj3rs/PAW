@@ -56,11 +56,11 @@
 
 
 
-{if isset($result->full)&&isset($result->monthly)}
+{if isset($res->full)&&isset($res->monthly)}
 	<h4>Wynik</h4>
 	<p class="result">
-            Pelna kwota:{$full}<br>
-            Miesiecznie:{$monthly}
+            Pelna kwota:{$res->full}<br>
+            Miesiecznie:{$res->monthly}
 	</p>
 {/if}
 
@@ -71,7 +71,7 @@
 </div>
 </div>
 {include file="../templates/bottom.tpl"}
-<script src="http://localhost:8080/PAW/php_04/js/ui.js"></script>
+<script src="http://localhost:8080/PAW/php_06/js/ui.js"></script>
 </body>
 </html>
 
