@@ -84,7 +84,7 @@ public function process(){
         $this->years = intval($this->form->ye);
         $this->result->full = intval($this->form->amm);
 
-	$this->msgs->addInfo('Parametry poprawne.');
+	$this->mess->addInfo('Parametry poprawne.');
 	//konwersja parametr�w na int
 //	$full = intval($amm);
 //	$years = intval($ye);
