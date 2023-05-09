@@ -8,7 +8,7 @@
 	<meta name="description" content={$page_description|default:"Opis domyślny"}>
 	<title>{$page_title|default:"Tytuł domyślny"}</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">	<link rel="stylesheet" href="<?php print(_APP_URL); ?>/css/style.css">	
-<link rel="stylesheet" href="{$app_url}/css/style.css">
+<link rel="stylesheet" href="http://localhost:8080/PAW/php_06/css/style.css">
 </head>
 {/block}
 
