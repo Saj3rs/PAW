@@ -57,7 +57,7 @@ else{
 }
 
 //nie ma sensu walidowa� dalej gdy brak parametr�w
-if (empty( $messages2 )) {
+if (!($this->mess->isError())) {
 	
 	// sprawdzenie, czy $x i $ye s� liczbami ca�kowitymi
 	if (! is_numeric( $this->form->amm )) {
@@ -69,7 +69,7 @@ if (empty( $messages2 )) {
 	}	
 
 }
-if (!empty ( $messages2 ))
+if ($this->mess->isError())
 	return false;
 else return true;
 // 3. wykonaj zadanie je�li wszystko w porz�dku
