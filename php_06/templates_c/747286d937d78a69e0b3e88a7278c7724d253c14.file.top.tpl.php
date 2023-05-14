@@ -1,28 +1,28 @@
-<?php /* Smarty version Smarty-3.1.17, created on 2023-05-08 14:14:58
-         compiled from "B:\www\PAW\php_06\templates\top.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:17418331236458e6616f21d0-93593124%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.17, created on 2023-05-14 17:29:53
+         compiled from "B:\www\PAW\php_06\app\views\templates\top.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:3713457346460fbd6912d11-98680973%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '136049c7265bf95927db363abdee1a180ee47600' => 
+    '747286d937d78a69e0b3e88a7278c7724d253c14' => 
     array (
-      0 => 'B:\\www\\PAW\\php_06\\templates\\top.tpl',
-      1 => 1683546913,
+      0 => 'B:\\www\\PAW\\php_06\\app\\views\\templates\\top.tpl',
+      1 => 1684077995,
       2 => 'file',
     ),
-    'b2f3bd01c78d87d176a251cf5d275ab20fc2443e' => 
+    '48059496029ee31f2a0620be42be44e79435293b' => 
     array (
-      0 => 'B:\\www\\PAW\\php_06\\app\\calc_view.tpl',
-      1 => 1683548012,
+      0 => 'B:\\www\\PAW\\php_06\\app\\views\\calc_view.tpl',
+      1 => 1684078192,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '17418331236458e6616f21d0-93593124',
+  'nocache_hash' => '3713457346460fbd6912d11-98680973',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.17',
-  'unifunc' => 'content_6458e6617475f7_58600527',
+  'unifunc' => 'content_6460fbd6957ca9_92961576',
   'variables' => 
   array (
     'conf' => 0,
@@ -30,13 +30,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'mess' => 0,
     'err' => 0,
     'inf' => 0,
-    'result' => 0,
-    'full' => 0,
-    'monthly' => 0,
+    'res' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_6458e6617475f7_58600527')) {function content_6458e6617475f7_58600527($_smarty_tpl) {?><!doctype html>
+<?php if ($_valid && !is_callable('content_6460fbd6957ca9_92961576')) {function content_6460fbd6957ca9_92961576($_smarty_tpl) {?><!doctype html>
 <html lang="pl">
 
 
@@ -49,13 +47,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<title><?php echo (($tmp = @$_smarty_tpl->tpl_vars['page_title']->value)===null||$tmp==='' ? "Tytuł domyślny" : $tmp);?>
 </title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">	<link rel="stylesheet" href="<<?php ?>?php print(_APP_URL); ?<?php ?>>/css/style.css">	
-<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['app_url']->value;?>
-/css/style.css">
+<link rel="stylesheet" href="http://localhost:8080/PAW/php_06/css/style.css">
 </head>
 
 
 <body>
-<div class="header" id="Intro" style="background-image:url('/PAW/php_04/css/bgd2.jpg')">
+<div class="header" id="Intro" style="background-image:url('/PAW/php_06/css/bgd2.jpg')">
 	<h1><?php echo (($tmp = @$_smarty_tpl->tpl_vars['page_title']->value)===null||$tmp==='' ? "Tytuł domyślny" : $tmp);?>
 </h1>
 	<h1><?php echo (($tmp = @$_smarty_tpl->tpl_vars['page_header']->value)===null||$tmp==='' ? "Tytuł domyślny" : $tmp);?>
@@ -69,8 +66,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div style="background-image:url('/PAW/php_06/css/bgd.jpg')">
 <div id="layout">
 
-<?php echo $_smarty_tpl->getSubTemplate ("../templates/side_menu.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
+<!--include file="./templates/side_menu.tpl"}-->
 
 <div class="content" id="CCalc">
     <h3>Kalkulator Kredytowy</h2>
@@ -129,12 +125,12 @@ $_smarty_tpl->tpl_vars['inf']->_loop = true;
 
 
 
-<?php if (isset($_smarty_tpl->tpl_vars['result']->value->full)&&isset($_smarty_tpl->tpl_vars['result']->value->monthly)) {?>
+<?php if (isset($_smarty_tpl->tpl_vars['res']->value->full)&&isset($_smarty_tpl->tpl_vars['res']->value->monthly)) {?>
 	<h4>Wynik</h4>
 	<p class="result">
-            Pelna kwota:<?php echo $_smarty_tpl->tpl_vars['full']->value;?>
+            Pelna kwota:<?php echo $_smarty_tpl->tpl_vars['res']->value->full;?>
 <br>
-            Miesiecznie:<?php echo $_smarty_tpl->tpl_vars['monthly']->value;?>
+            Miesiecznie:<?php echo $_smarty_tpl->tpl_vars['res']->value->monthly;?>
 
 	</p>
 <?php }?>
@@ -145,9 +141,9 @@ $_smarty_tpl->tpl_vars['inf']->_loop = true;
 
 </div>
 </div>
-<?php echo $_smarty_tpl->getSubTemplate ("../templates/bottom.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-
-<script src="http://localhost:8080/PAW/php_04/js/ui.js"></script>
+<!-- For some reasons include doesn't work
+include file="./templates/bottom.tpl"}-->
+<script src="http://localhost:8080/PAW/php_06/js/ui.js"></script>
 </body>
 </html>
 

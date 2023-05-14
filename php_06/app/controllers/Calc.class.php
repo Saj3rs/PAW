@@ -1,7 +1,8 @@
-<?php
+<?php namespace app\controllers;
 
-require_once 'CalcForm.class.php';
-require_once 'CalcResult.class.php';
+use app\forms\CalcForm;
+use app\transfer\CalcResult;
+use core\Messages;
 class Calc{
 // 1. pobranie parametr�w
 private $mess;
@@ -16,7 +17,7 @@ private $years=0;
 		$this->mess = new Messages();
 		$this->form = new CalcForm();
 		$this->result = new CalcResult();
-        
+
 	}
 
 public function start(){
@@ -55,12 +56,12 @@ else{
 
 //nie ma sensu walidowa� dalej gdy brak parametr�w
 if (!($this->mess->isError())) {
-	
+
 	// sprawdzenie, czy $x i $ye s� liczbami ca�kowitymi
 	if (! is_numeric( $this->form->amm )) {
 		$this->mess-> addError('Kwota nie jest liczb� ca�kowit�');
 	}
-	
+
 	if (! is_numeric( $this->form->ye )) {
 		$this->mess-> addError('Lata nie s� liczb� ca�kowit�');
 	}	
@@ -76,7 +77,7 @@ else return true;
 
 public function process(){
 	//global $role;
-        
+
         $this->form->interest = intval($this->form->interest)/100;
         $this->years = intval($this->form->ye);
         $this->result->full = intval($this->form->amm);
@@ -93,14 +94,14 @@ public function process(){
         }
         //obliczenie kwoty miesi�cznej
         $this->result->monthly = $this->result->full/(12*$this->form->ye);
-    
-   
+
+
 }
 
 public function Smart(){
     global $conf;
     getSmarty()->assign('conf',$conf);
-                    
+
     getSmarty()->assign('page_title','Damian Figura');
     getSmarty()->assign('page_description','Strona z uzyciem biblioteki Smarty');
     getSmarty()->assign('page_header','Szablon Smarty');

@@ -6,7 +6,7 @@
 <div style="background-image:url('/PAW/php_06/css/bgd.jpg')">
 <div id="layout">
 
-{include file="./templates/side_menu.tpl"}
+<!--include file="./templates/side_menu.tpl"}-->
 
 <div class="content" id="CCalc">
     <h3>Kalkulator Kredytowy</h2>
@@ -70,8 +70,9 @@
 
 </div>
 </div>
-{include file="./templates/bottom.tpl"}
-<script src="http://localhost:8080/PAW1/php_06/js/ui.js"></script>
+<!-- For some reasons include doesn't work
+include file="./templates/bottom.tpl"}-->
+<script src="http://localhost:8080/PAW/php_06/js/ui.js"></script>
 </body>
 </html>
 

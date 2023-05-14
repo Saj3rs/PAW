@@ -11,7 +11,8 @@ switch ($action) {
 	default : // 'calcView'
 	    // załaduj definicję kontrolera
 		// utwórz obiekt i uzyj
-		$ctrl = new app\controllers\Calc();		$ctrl->Smart ();
+		$ctrl = new app\controllers\Calc();
+                $ctrl->Smart ();
 	break;
 	case 'calcCompute' :
 		// załaduj definicję kontrolera
