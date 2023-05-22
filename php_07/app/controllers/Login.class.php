@@ -62,7 +62,8 @@ class Login{
 				//$_SESSION['user_login'] = $user->login;
 				//$_SESSION['user_role'] = $user->role;
 				// LUB całego obiekt, po serializacji
-				$_SESSION['user'] = serialize($user);				
+				$_SESSION['user'] = serialize($user);
+                                
 			} else {
 				getMessages()->addError('Niepoprawny login lub hasło');
 			}
@@ -71,12 +72,16 @@ class Login{
 		return ! getMessages()->isError();
 	}
 	
-	public function doLogin(){
+	public function action_doLogin(){
 
 		$this->getParams();
-		
+		//getMessages()->addInfo($this->form->login); //to dziala
+		//getMessages()->addInfo($this->form->pass);
+                
+                
 		if ($this->validate()){
 			//zalogowany => przekieruj na stronę główną, gdzie uruchomiona zostanie domyślna akcja
+                    // problem z przekazem
 			header("Location: ".getConf()->app_url."/");
 		} else {
 			//niezalogowany => wyświetl stronę logowania
@@ -85,7 +90,7 @@ class Login{
 		
 	}
 	
-	public function doLogout(){
+	public function action_doLogout(){
 		// 1. zakończenie sesji
 		if (session_status() == PHP_SESSION_NONE) {
 			session_start();

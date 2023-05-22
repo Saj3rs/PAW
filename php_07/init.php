@@ -36,6 +36,13 @@ function &getLoader() {
     global $cloader;
     return $cloader;
 }
+
+require_once 'core/Router.class.php'; //załaduj i stwórz router
+$router = new core\Router();
+function &getRouter(): core\Router {
+    global $router; return $router;
+}
+
 require_once 'core/functions.php';
 
 $action = getFromRequest('action');

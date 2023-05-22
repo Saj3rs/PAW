@@ -20,14 +20,17 @@ private $years=0;
 
 	}
 
-public function start(){
+public function action_start(){
     $this->getParams();
     if ( $this->validate() ) { // gdy brak b��d�w
 	    $this->process();
     }
      $this->Smart();
 }
-
+public function action_calcShow(){
+    getMessages()->addInfo('Witaj w kalkulatorze');
+    $this->Smart();
+}
 
 public function getParams(){
 

@@ -7,25 +7,13 @@ require_once 'init.php';
 
 //2. wykonanie akcji
 
-switch ($action) {
-        default : // 'calcView'  // akcja NIEPUBLICZNA
-		include 'check.php'; // KONTROLA
-		$ctrl = new app\controllers\Calc();
-		$ctrl->Smart ();
-	break;
-	case 'login': // akcja PUBLICZNA - brak check.php
-		$ctrl = new app\controllers\Login();
-		$ctrl->doLogin();
-	break;
-	case 'calcCompute' : // akcja NIEPUBLICZNA
-		include 'check.php';  // KONTROLA
-		$ctrl = new app\controllers\Calc();
-		$ctrl->start ();
-	break;
-	case 'logout' : // akcja NIEPUBLICZNA
-		include 'check.php';  // KONTROLA
-		$ctrl = new app\controllers\Login();
-		$ctrl->doLogout();
-    
-	break;
-}
+getRouter()->setDefaultRoute('calcShow'); // akcja/ścieżka domyślna
+getRouter()->setLoginRoute('dologin'); // akcja/ścieżka na potrzeby logowania (przekierowanie, gdy nie ma dostępu)
+
+getRouter()->addRoute('calcShow',    'Calc',  ['user','admin']);
+getRouter()->addRoute('start',       'Calc',  ['user','admin']);
+getRouter()->addRoute('dologin',       'Login');
+getRouter()->addRoute('dologout',      'Login', ['user','admin']);
+
+getRouter()->go();
+
