@@ -15,9 +15,11 @@ if (session_status() == PHP_SESSION_NONE) {
 
 // LUB pobranie całego obiektu z sesji
 $user = isset($_SESSION['user']) ? unserialize($_SESSION['user']) : null;
-
+getMessages()->addInfo('check ');
 //jeśli brak parametru lub danych (niezalogowanie) to wyświetl stronę logowania
 if ( ! (isset($user) && isset($user->login) && isset($user->role)) ){
+                                        
+
 	$ctrl = new app\controllers\Login();
 	$ctrl->Smart();
 	

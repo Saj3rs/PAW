@@ -15,7 +15,8 @@ class Login{
 	
 	public function getParams(){
 		// 1. pobranie parametrów
-		$this->form->login = getFromRequest('login');
+            getMessages()->addInfo('getparams');
+            	$this->form->login = getFromRequest('login');
 		$this->form->pass = getFromRequest('pass');
 	}
 	
@@ -23,7 +24,7 @@ class Login{
 		// sprawdzenie, czy parametry zostały przekazane
 		if (! (isset ( $this->form->login ) && isset ( $this->form->pass ))) {
 			// sytuacja wystąpi kiedy np. kontroler zostanie wywołany bezpośrednio - nie z formularza
-			getMessages()->addError('Błędne wywołanie aplikacji !');
+			
 		}
 			
 			// nie ma sensu walidować dalej, gdy brak parametrów
@@ -55,6 +56,7 @@ class Login{
 				$_SESSION['user'] = serialize($user);				
 			} else if ($this->form->login == "user" && $this->form->pass == "user") {
 				if (session_status() == PHP_SESSION_NONE) {
+                                    getMessages()->addInfo('header');
 					session_start();
 				}
 				$user = new User($this->form->login, 'user');
@@ -63,6 +65,7 @@ class Login{
 				//$_SESSION['user_role'] = $user->role;
 				// LUB całego obiekt, po serializacji
 				$_SESSION['user'] = serialize($user);
+                                
                                 
 			} else {
 				getMessages()->addError('Niepoprawny login lub hasło');
@@ -78,13 +81,17 @@ class Login{
 		//getMessages()->addInfo($this->form->login); //to dziala
 		//getMessages()->addInfo($this->form->pass);
                 
-                
+                //TA OPCJA NIE PRZECHODZI
 		if ($this->validate()){
 			//zalogowany => przekieruj na stronę główną, gdzie uruchomiona zostanie domyślna akcja
                     // problem z przekazem
+				getMessages()->addInfo('header');
+                    
 			header("Location: ".getConf()->app_url."/");
+                               
 		} else {
 			//niezalogowany => wyświetl stronę logowania
+                    getMessages()->addInfo('validate fail');
 			$this->Smart(); 
 		}
 		
