@@ -67,7 +67,12 @@ if (!($this->mess->isError())) {
 
 	if (! is_numeric( $this->form->ye )) {
 		$this->mess-> addError('Lata nie s� liczb� ca�kowit�');
-	}	
+	}
+        if(!($this->form->ye >0 && $this->form->amm>0 )){
+            $this->mess-> addError('Wartosci musza byc wieksze od zera');
+
+        }
+        
 
 }
 if ($this->mess->isError())

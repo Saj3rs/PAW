@@ -1,9 +1,4 @@
 <?php
-
-
-function getFromRequest($param_name){
-	return isset($_REQUEST [$param_name]) ? $_REQUEST [$param_name] : null;
-}
 function getFrom(&$source,&$idx,&$required,&$required_message){
 	if (isset($source[$idx])){
 		return $source[$idx];
@@ -13,9 +8,9 @@ function getFrom(&$source,&$idx,&$required,&$required_message){
 	}
 }
 
-//function getFromRequest($param_name,$required=false,$required_message=null){
-//	return getFrom($_REQUEST,$param_name,$required,$required_message);
-//}
+function getFromRequest($param_name,$required=false,$required_message=null){
+	return getFrom($_REQUEST,$param_name,$required,$required_message);
+}
 function getFromGet($param_name,$required=false,$required_message=null){
 	return getFrom($_GET,$param_name,$required,$required_message);
 }

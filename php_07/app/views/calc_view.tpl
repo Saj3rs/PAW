@@ -9,8 +9,10 @@
 
 <div class="content" id="CCalc">
     <h3>Kalkulator Kredytowy</h2>{block name=noLogin}
+    	
+
     {block name=logout}{/block}
-<form class="pure-form pure-form-stacked" action="{$conf->action_root}calcCompute" method="post">
+<form class="pure-form pure-form-stacked" action="{$conf->action_root}start" method="post">
 	<label for="id_amm">Kwota: </label>
 	<input id="id_amm" type="text" name="amm" value="{$form->amm}" /><br />
 	<label for="id_y">Ilość Lat: </label>

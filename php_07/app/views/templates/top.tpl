@@ -1,7 +1,7 @@
 {extends file="../calc_view.tpl"}
 {block name=logout}
 <div class="pure-menu pure-menu-horizontal bottom-margin">
-	<a href="{$conf->action_url}logout"  class="pure-menu-heading pure-menu-link">wyloguj</a>
+	<a href="{$conf->action_url}doLogout"  class="pure-menu-heading pure-menu-link">wyloguj</a>
     </div>
 {/block}
 {block name=meta}

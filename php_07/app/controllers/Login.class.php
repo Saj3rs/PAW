@@ -49,6 +49,8 @@ class Login{
 					session_start();
 				}
 				$user = new User($this->form->login, 'admin');
+				addRole($user->role);
+
 				// zapis wartości do sesji
 				//$_SESSION['user_login'] = $user->login;
 				//$_SESSION['user_role'] = $user->role;
@@ -65,7 +67,8 @@ class Login{
 				//$_SESSION['user_role'] = $user->role;
 				// LUB całego obiekt, po serializacji
 				$_SESSION['user'] = serialize($user);
-                                
+				addRole($user->role);
+
                                 
 			} else {
 				getMessages()->addError('Niepoprawny login lub hasło');

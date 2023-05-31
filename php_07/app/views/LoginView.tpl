@@ -20,7 +20,7 @@
     
 
 {block name=noLogin}
-<form action="{$conf->action_url}login" method="post"  class="pure-form pure-form-aligned bottom-margin">
+<form action="{$conf->action_url}doLogin" method="post"  class="pure-form pure-form-aligned bottom-margin">
 	<legend>Logowanie do systemu</legend>
 	<fieldset>
         <div class="pure-control-group">
